@@ -12,7 +12,7 @@ import starter.utils.WaitUtils;
 
 import java.time.Duration;
 
-@DefaultUrl("/wiki/Trang_Chính-NGuyen-Tri-Dien")
+@DefaultUrl("page:home.page")
 public class Search extends PageObject {
       public void search(String search) {
           find(By.xpath(LocatorUtils.getXPathForAttribute("type","search","*"))).waitUntilEnabled().sendKeys(search);
