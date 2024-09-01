@@ -1,9 +1,12 @@
 package starter.stepdefinitions;
 
+import io.cucumber.datatable.DataTable;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import net.serenitybdd.annotations.Steps;
 import starter.steps.SearchGoogleStep;
+import starter.utils.SessionData;
 
 public class SearchDefinitions {
     @Steps
@@ -18,4 +21,11 @@ public class SearchDefinitions {
         searchFor.verifySearchResult(searchResult);
     }
 
+    @Given("Search by keyword")
+    public void searchByKeyword(DataTable dataTable) {
+        String storeIds = SessionData.tableWithoutHeaderAndSingleRow(dataTable, "store_ids");
+        String keyword = SessionData.tableWithoutHeaderAndSingleRow(dataTable, "keyword");
+        System.out.println("Search by keyword: " + keyword);
+        System.out.println("Search by keyword: " + storeIds);
+    }
 }
